@@ -1,5 +1,10 @@
 # Environment
-environments
+/environments
 
 # Node modules
-node_modules
+/node_modules
+/dist
+.env
+*.log
+npm-debug.log*
+.DS_Store
