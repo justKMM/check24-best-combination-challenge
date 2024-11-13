@@ -4,7 +4,7 @@
  * @param {boolean} beAdmin if true, user needs to be admin
  * @return {(function(*, *, *): void)|*}
  */
-exports.checkAuthorization = (beAdmin) => {
+const checkAuthorization = (beAdmin) => {
     return (req, res, next) => {
         if(req.session.authenticated){ //check if session was marked as authenticated
             if(!beAdmin || req.session.user.isAdmin){ //check if admin-requirement is met
@@ -14,4 +14,8 @@ exports.checkAuthorization = (beAdmin) => {
         }
         res.status(401).send(); //intercept request
     }
-}
+};
+
+module.exports = {
+    checkAuthorization
+};
