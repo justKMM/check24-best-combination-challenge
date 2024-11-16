@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <div class="input-container">
+        <mat-form-field class="input-field">
+            <mat-label>FC Name</mat-label>
+            <input matInput placeholder="ex. Barca" [formControl]="currentInputControl" [matAutocomplete]="autoFcNames">
+            <!-- Auto-complete for FC Names -->
+            <mat-autocomplete #autoFcNames="matAutocomplete" (optionSelected)="onAddSelection($event)">
+                <mat-option *ngFor="let fc of filteredFcNames | async" [value]="fc">
+                    {{ fc }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <!-- Selected values -->
+        <mat-chip-listbox class="selected-items" *ngIf="selectedFcNames.length > 0">
+            <mat-chip *ngFor="let fcName of selectedFcNames" (removed)="onRemoveSelection(fcName)">
+                {{ fcName }}
+                <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip>
+        </mat-chip-listbox>
+    </div>
+</div>

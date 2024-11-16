@@ -1,0 +1,16 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  
+    .input-field {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .selected-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }

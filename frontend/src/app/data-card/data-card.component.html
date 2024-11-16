@@ -1,0 +1,20 @@
+<!-- Data structure of each data card defined by interface CardData in models folder -->
+<mat-card class="data-card" (click)="onCardClick()">
+    <mat-card-header>
+        <div mat-card-avatar class="card-logo" *ngIf="data.logoUri">
+            <img [src]="data.logoUri" [alt]="data.title + 'logo'">
+        </div>
+        <mat-card-title>{{ data.title }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="data-line" *ngFor="let line of data.data"></div>
+    </mat-card-content>
+
+    <!-- Clickable button -->
+    <mat-card-actions *ngIf="showAction">
+        <button mat-button color="primary" (click)="onButtonClick($event)">
+            {{ actionButtonText }}
+        </button>
+    </mat-card-actions>
+</mat-card>
