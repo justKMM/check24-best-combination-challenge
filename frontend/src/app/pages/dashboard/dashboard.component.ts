@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCardComponent } from '../data-card/data-card.component';
+import { DataCardComponent } from '../../data-card/data-card.component';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
