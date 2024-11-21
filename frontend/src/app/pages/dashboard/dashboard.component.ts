@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCardComponent } from '../../data-card/data-card.component';
+import { DataCardComponent } from '../../components/data-card/data-card.component';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { DataCard } from '../../models/DataCard';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,16 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 export class DashboardComponent implements OnInit{
   currentSearch: string[] = [];
   currentInputControl = new FormControl('');
-  cards: DataCardComponent[] = [];
+  cards: DataCard[] = [
+    {id: 1, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2", "Line 3", "Line 4"]},
+    {id: 2, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2"]},
+    {id: 3, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2"]},
+    {id: 4, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2"]},
+    {id: 5, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2"]},
+    {id: 6, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2"]},
+    {id: 7, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2"]},
+    {id: 8, title: "Test card", logoUri:"/favicon.ico", data: ["Line 1", "Line 2"]},
+  ];
   fcNames: string[] = ['Barca FC', 'Manchester United', 'Manchester City', 'Real Madrid FC', 'Bayern München FC', 'Dortmund FC', 'Leverkusen FC'];
   filteredFcNames!: Observable<string[]>;
   selectedFcNames: string[] = [];

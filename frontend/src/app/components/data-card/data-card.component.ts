@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CardData } from '../models/CardData';
+import { DataCard } from '../../models/DataCard';
 
 @Component({
   selector: 'app-data-card',
@@ -7,11 +7,11 @@ import { CardData } from '../models/CardData';
   styleUrl: './data-card.component.scss'
 })
 export class DataCardComponent {
-  @Input() data!: CardData;
+  @Input() data!: DataCard;
   @Input() actionButtonText: string = 'VIEW DETAILS';
   @Input() showAction: boolean = true;
-  @Output() cardClick = new EventEmitter<CardData>();
-  @Output() buttonClick = new EventEmitter<CardData>();
+  @Output() cardClick = new EventEmitter<DataCard>();
+  @Output() buttonClick = new EventEmitter<DataCard>();
 
   onCardClick(): void {
     this.cardClick.emit(this.data);
